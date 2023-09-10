@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block content %}
+    <img class="player-image" src="{{ url_for('static', filename=image_path) }}" alt="{{ player }}" />
+        <div class="dialogue" style="position: absolute; bottom: 20px; left: 30px; background-size: cover; padding: 10px; max-width: 50%; z-index: 1;">
+            <p style="color: aliceblue; padding-bottom: 10px;"><strong>{{ player }}</strong></p> 
+            <p class="dialogue-text" style="color: aliceblue;">{{ message }}</p> 
+        </div>
+        <p style="position: absolute; bottom: 10px; right: 10px; z-index: 1;">
+            <a href="{{ url_for('walk', index=next_index) }}" style="color: aliceblue; 
+            animation: dropAnimation 3s infinite; display: inline-block;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 18 16">
+                <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+            </svg>
+            </a>
+        </p>
+        <p>
+            <a href="/" style="color: aliceblue; display: inline-block;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                </svg>
+            </a>
+        </p>
+{% endblock %}

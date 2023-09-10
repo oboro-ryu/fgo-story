@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Flask - paiza</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
+        <style>
+        body {padding: 10px;}
+        main {
+            background-image: url(../templates/img/school-bg.png);
+            background-size: cover; 
+            background-repeat: no-repeat;  
+            background-position: center;  
+            width: 100vw; 
+            height: 50vh;
+            position: relative;        
+}
+        .box_red_name {
+            position: absolute;  
+            bottom: 0;  
+            left: 0;
+            width: 100%;  
+        }
+
+        img {
+            width: 100%;
+            height: 15vh;
+        }
+
+        audio {
+            display: none;
+        }
+
+        .player-image {
+            /* 画像のサイズを指定 */
+            width: 500px; /* 例: 幅200px */
+            height: 300px; /* 高さは自動 (アスペクト比を維持) */
+            object-fit: cover;
+            /* 画像を中央に配置 */
+            position: absolute;
+            bottom: 10%;  /* 上から50%の位置に配置 */
+            left: 50%; /* 左から50%の位置に配置 */
+            transform: translateX(-50%); /* 画像の中心を基準にして位置を調整 */
+        }
+
+
+        @keyframes dropAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+         </style>
+    </head>
+    <body>
+        <figure>
+            <audio
+                controls 
+                src="/templates/img/audio.mp3" autoplay>
+                    Your browser does not support the
+                    <code>audio</code> element.
+            </audio>
+        </figure>
+        <main data-barba="container" data-barba-namespace="home">
+            {% block content %}
+            {% endblock %} 
+            <div class="box_red_name">
+                <img src="{{ url_for('static', filename='img/box_red_name.png') }}" alt="">
+            </div>         
+        </main>
+    </body>
+</html>
+
